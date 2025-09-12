@@ -1,0 +1,12 @@
+{
+  "name": "ops-beowulf-cluster-website",
+  "version": "1.0.0",
+  "description": "This is a the repo for the Otago Polytechnic Beowulf cluster web interface.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
