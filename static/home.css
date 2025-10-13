@@ -12,51 +12,72 @@ h1 {
     text-emphasis: bold;
 }
 
-/* container on the right side */
+/* Queue container (entire sidebar area) */
 .queue-container {
-  width: 280px;           /* adjust to fit your layout */
-  background: #ddd;       
-  border-radius: 8px;
-  padding: 12px;
+  width: 550px;                
+  border-radius: 10px;
+  padding: 20px;
   display: flex;
   flex-direction: column;
+  align-items: stretch;
+
+  
+  margin-left: 60px;         
+  margin-top: 40px;           
 }
 
-/* title */
+/* Queue title */
 .queue-title {
-  margin: 0 0 10px;
-  font-size: 18px;
-  font-weight: bold;
+  font-size: 22px;
+  font-weight: 600;
   text-align: center;
+  margin: 0 0 20px;
 }
 
-/* scrolling area */
+/* Scroll area */
 .queue-list {
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  overflow-y: auto;     /* scroll only inside this */
-  max-height: 400px;    /* controls visible height */
-  padding-right: 4px;   /* keeps scrollbar off content */
+  gap: 20px;
+  overflow-y: auto;   
+  overflow-x: visible;        
+  padding: 16px 16px 16px 16px;    
+  background: transparent;   
+  max-height: 630px;           
 }
 
-/* individual job boxes */
+/* Individual job boxes */
 .queue-item {
-  background: #b5b5b5;
-  border-radius: 10px;
-  padding: 12px;
+  background: #ebe9e9;
+  border-radius: 14px;
+  padding: 24px;
+  min-height: 150px;
+  font-size: 18px;
   font-weight: 500;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.25); 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.25s ease; 
 }
 
-/* optional: custom scrollbar styling (nice touch) */
+/* Hover effect */
+.queue-item:hover {
+  background: #007bff;             
+  color: black;                  
+  transform: scale(1.03);          
+  box-shadow: 0 0 20px rgba(0, 123, 255, 0.5); 
+  cursor: pointer;                
+}
+
+/* Scrollbar */
 .queue-list::-webkit-scrollbar {
-  width: 8px;
+  width: 10px;
 }
 .queue-list::-webkit-scrollbar-thumb {
-  background-color: #aaa;
-  border-radius: 4px;
+  background-color: #999;
+  border-radius: 6px;
 }
 .queue-list::-webkit-scrollbar-thumb:hover {
-  background-color: #888;
+  background-color: #777;
 }
