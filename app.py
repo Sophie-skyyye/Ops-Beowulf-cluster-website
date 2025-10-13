@@ -6,7 +6,8 @@ app = Flask(__name__)
 def home():
     return render_template("index.html")
 
-# to add more pages you will add this 
+# to add more pages you will add this
+# @app.route("/") 
 # def about():
 #    return render_templates("about.html")
 
