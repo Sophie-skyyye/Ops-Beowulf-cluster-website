@@ -5,6 +5,9 @@ app = Flask(__name__)
 @app.route("/")
 def home():
     return render_template("index.html")
+@app.route("/upload")
+def upload():
+    return render_template("upload.html")
 
 # to add more pages you will add this 
 # def about():
