@@ -7,8 +7,10 @@
 </head>
 
 <body>
-    <h1>Dashboard</h1>
-
+    <div class="dashboard">
+    <header class="dash-header">
+      <h1>Dashboard</h1>
+    </header>
    <!-- Queue sidebar -->
 <aside class="queue-container">
   <h2 class="queue-title">Queue</h2>
@@ -24,17 +26,15 @@
 </aside>
 
 <!-- Completed Jobs -->
-<aside class="completedJobs-container">
-  <div class="completedJobs">
-    <h2>Completed Jobs:</h2>
-    <h1>3</h1>
-    <p>last completed job: 10/10/2025</p>
+<section class="right-column">
+  <div class="completedJobs-container">
+    <h3>Completed Jobs:</h3>
+    <div class="completed-count">3</div>
+    <small>last completed job: 10/10/2025</small>
   </div>
-</aside>
 
-<!-- Create new job button -->
-<div class="upload-button">
-    <a href="/upload"> Create new job</a>
-</div>
+  <a class="upload-button" href="/upload">Create new job</a>
+</section>
+  </div>
 </body>
 </html>
