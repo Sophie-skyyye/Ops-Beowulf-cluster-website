@@ -9,7 +9,8 @@ def home():
 def upload():
     return render_template("upload.html")
 
-# to add more pages you will add this 
+# to add more pages you will add this
+# @app.route("/") 
 # def about():
 #    return render_templates("about.html")
 

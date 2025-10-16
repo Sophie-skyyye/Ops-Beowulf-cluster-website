@@ -1,0 +1,159 @@
+body {
+  font-family: poppins, sans-serif;
+  background-color: #f2f2f2;
+  margin: 0;
+}
+
+h1 {
+  color: #333;
+  text-align: left;
+  margin: 0;
+  text-emphasis: bold;
+}
+
+/* ----------------------------------------------- Dashboard --------------------------------------------------------------*/
+/* Move the whole grid slightly left; increase gap between columns */
+.dashboard {
+  max-width: 1400px;        /* gives room to breathe */
+  margin-left: 48px;        /* <<< shift left */
+  margin-right: 0;
+  padding: 24px 24px 24px 0;
+  display: grid;
+  grid-template-columns: 560px 1fr;   /* left fixed, right flexible */
+  grid-template-areas:
+    "header header"
+    "queue  right";
+  column-gap: 96px;         /* <<< more space between queue and right column */
+  row-gap: 24px;
+  align-items: start;
+}
+
+.dash-header { grid-area: header; }
+.dash-header h1 { margin-bottom: 12px; }
+
+/* ----------------------------------------- Queue container ------------------------------------------------------------------*/
+.queue-container {
+  grid-area: queue;
+  width: 560px;             /* keeps your size */
+  border-radius: 10px;
+  padding: 0 8px;
+}
+
+.queue-title {
+  font-size: 22px;
+  font-weight: 600;
+  text-align: center;
+  margin: 0 0 16px;
+}
+
+.queue-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  overflow-y: auto;
+  overflow-x: visible;
+  padding: 8px;
+  background: transparent;
+  max-height: 630px;
+}
+
+.queue-item {
+  background: white;
+  border-radius: 14px;
+  padding: 24px;
+  min-height: 150px;
+  font-size: 18px;
+  font-weight: 500;
+  box-shadow: 0 0 15px rgba(0,0,0,0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.25s ease;
+}
+.queue-item:hover {
+  background: #007bff;
+  color: black;
+  transform: scale(1.03);
+  box-shadow: 0 0 20px rgba(0,123,255,0.5);
+  cursor: pointer;
+}
+
+/* scrollbar */
+.queue-list::-webkit-scrollbar { width: 10px; }
+.queue-list::-webkit-scrollbar-thumb { background-color: #999; border-radius: 6px; }
+.queue-list::-webkit-scrollbar-thumb:hover { background-color: #777; }
+
+/* ------------------------------------------ Completed Jobs ----------------------------------------------- */
+
+.right-column {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;   /* aligns both card + button to the right */
+  gap: 16px;               /* space between them */
+  margin-left: 100px;
+  margin-top: 45px;      
+}
+
+.completedJobs-container {
+  width: 320px;             /* a touch wider looks nicer */
+  position: relative;
+  border-radius: 10px;
+  padding: 20px;
+  background: #fff;
+  box-shadow: 0 0 15px rgba(0,0,0,0.25);
+}
+.completed-count{
+  text-align: center;  
+}
+.completedJobs-container h3 { margin: 0 0 8px; }
+.completed-count { font-size: 40px; font-weight: 700; margin: 6px 0 8px; }
+
+/* ------------------------------------------ Upload button ----------------------------------------------- */
+
+.upload-button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 14px;
+  border-radius: 999px;
+  background: #fff;
+  color: #111;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.10);
+  transition: transform .2s, box-shadow .2s, background .2s, color .2s;
+}
+
+.upload-button:hover {
+  background: #007bff;
+  color: black;
+  transform: scale(1.03);
+  box-shadow: 0 0 20px rgba(0, 123, 255, 0.35);
+}
+
+
+/* -------------- Responsive -------------- */
+@media (max-width: 1100px) {
+  .dashboard {
+    margin-left: 16px;      
+    padding: 16px 16px 16px 0;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "header"
+      "queue"
+      "right";
+    column-gap: 24px;
+  }
+  .queue-container { width: 100%; }
+  .right-column,
+  .completedJobs-container,
+  .upload-button { width: 100%; }
+  .upload-button { justify-content: center; }
+  .queue-list { max-height: 50vh; }
+}
+
+@media (max-width: 600px) {
+  .queue-item { min-height: 120px; }
+  .completed-count { font-size: 32px; }
+}

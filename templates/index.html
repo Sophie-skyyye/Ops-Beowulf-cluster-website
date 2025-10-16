@@ -1,7 +1,40 @@
-<!doctype html>
-<html>
-  <body>
-    <h1>Hello</h1>
-    <p>Flask + Jinja are working</p>
-  </body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Home Page</title>
+    <!-- Link the CSS file -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='home.css') }}">
+</head>
+
+<body>
+    <div class="dashboard">
+    <header class="dash-header">
+      <h1>Dashboard</h1>
+    </header>
+   <!-- Queue sidebar -->
+<aside class="queue-container">
+  <h2 class="queue-title">Queue</h2>
+  
+  <div class="queue-list">
+    <div class="queue-item">Job 1</div>
+    <div class="queue-item">Job 2</div>
+    <div class="queue-item">Users Job</div>
+    <div class="queue-item">Job 4</div>
+    <div class="queue-item">Job 5</div>
+    <div class="queue-item">Users Job</div>
+  </div>
+</aside>
+
+<!-- Completed Jobs -->
+<section class="right-column">
+  <div class="completedJobs-container">
+    <h3>Completed Jobs:</h3>
+    <div class="completed-count">3</div>
+    <small>last completed job: 10/10/2025</small>
+  </div>
+
+  <a class="upload-button" href="/upload">Create new job</a>
+</section>
+  </div>
+</body>
 </html>
