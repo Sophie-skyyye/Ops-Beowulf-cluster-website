@@ -1,0 +1,22 @@
+#upload-form {
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+    max-width: 30%;
+    align-items: center;
+}
+
+#file-input {
+    margin: 20px;
+    font-size: 18px;
+    align-items: center;
+}
+
+#git-link {
+    margin: 20px;
+}
+
+#submit-btn {
+    margin: 20px;
+    max-width: 50%;
+}

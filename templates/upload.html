@@ -1,13 +1,15 @@
+<link rel="stylesheet" href="{{ url_for('static', filename='upload.css') }}">
+
 <form id="upload-form" onsubmit="event.preventDefault(); this.reset(); validate();">
-    <input type="file" id="file" name="file">
+    <input type="file" id="file-input" name="file">
     <input type="text" id="git-link" name="Git_Link" placeholder="Git file link">
-    <button type="submit" id="submit" disabled>Upload</button>
+    <button type="submit" id="submit-btn" disabled>Upload</button>
   </form>
   
   <script>
-    const fileInput = document.getElementById('file');
+    const fileInput = document.getElementById('file-input');
     const linkInput = document.getElementById('git-link');
-    const submitBtn = document.getElementById('submit');
+    const submitBtn = document.getElementById('submit-btn');
   
     function validate() {
       const hasFile = fileInput.files.length > 0;
