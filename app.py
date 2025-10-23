@@ -71,6 +71,15 @@ def home():
 def upload():
     return render_template("upload.html")
 
+@app.route('/view-users')
+@login_required
+def view_users():
+    users = User.query.all()
+    output = '<h1>Registered Users</h1>'
+    for user in users:
+        output += f'<p>ID: {user.id} | Username: {user.username}</p>'
+    return output
+
 # to add more pages you will add this
 # @app.route("/") 
 # def about():
