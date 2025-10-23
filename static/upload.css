@@ -1,22 +1,57 @@
-#upload-form {
-    display: flex;
-    flex-direction: column;
-    margin: 20px;
-    max-width: 30%;
-    align-items: center;
-}
-
-#file-input {
-    margin: 20px;
-    font-size: 18px;
-    align-items: center;
-}
-
-#git-link {
-    margin: 20px;
-}
-
-#submit-btn {
-    margin: 20px;
-    max-width: 50%;
-}
+#upload-container{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    margin:20px;
+  }
+  #upload-form{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:10px;
+  }
+  
+  /* hide the real file input but keep it accessible for label */
+  #file{
+    position:absolute;
+    width:1px; height:1px;
+    padding:0; margin:-1px;
+    overflow:hidden;
+    clip:rect(0 0 0 0);
+    border:0;
+  }
+  
+  /* custom, centered file control */
+  #file-ui{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:12px;
+    width:320px;
+    padding:8px 12px;
+    border:1px solid #ccc;
+    border-radius:6px;
+    cursor:pointer;
+    user-select:none;
+  }
+  
+  #file-button{
+    padding:6px 10px;
+    border:1px solid #aaa;
+    border-radius:4px;
+  }
+  
+  #file-name{
+    flex:1;
+    text-align:center;
+    min-width:0;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+  }
+  
+  /* make other controls the same width */
+  #git-link, #submit-btn{
+    width:320px;
+    box-sizing:border-box;
+  }

@@ -1,28 +1,43 @@
 <link rel="stylesheet" href="{{ url_for('static', filename='upload.css') }}">
 
-<form id="upload-form" onsubmit="event.preventDefault(); this.reset(); validate();">
-    <input type="file" id="file-input" name="file">
+<div id="upload-container">
+  <p>Select a file to upload or download a file from github</p>
+
+  <form id="upload-form" onsubmit="event.preventDefault(); this.reset(); validate();">
+    <!-- Hidden real input -->
+    <input
+      id="file"
+      type="file"
+      onchange="document.getElementById('file-name').textContent = this.files[0]?.name || 'No file chosen'">
+
+    <!-- Better looking UI -->
+    <label for="file" id="file-ui">
+      <span id="file-button">Choose File</span>
+      <span id="file-name">No file chosen</span>
+    </label>
+
     <input type="text" id="git-link" name="Git_Link" placeholder="Git file link">
     <button type="submit" id="submit-btn" disabled>Upload</button>
   </form>
-  
-  <script>
-    const fileInput = document.getElementById('file-input');
-    const linkInput = document.getElementById('git-link');
-    const submitBtn = document.getElementById('submit-btn');
-  
-    function validate() {
-      const hasFile = fileInput.files.length > 0;
-      const hasLink = linkInput.value.trim() !== '';
-  
-      const oneFile = (hasFile && !hasLink) || (!hasFile && hasLink);
-  
-      fileInput.required = !hasLink;
-      linkInput.required = !hasFile;
-  
-      submitBtn.disabled = !oneFile;
-    }
-  
+</div>
+
+    <script>
+      const fileInput = document.getElementById('file-input');
+      const linkInput = document.getElementById('git-link');
+      const submitBtn = document.getElementById('submit-btn');
+    
+      function validate() {
+        const hasFile = fileInput.files.length > 0;
+        const hasLink = linkInput.value.trim() !== '';
+    
+        const oneFile = (hasFile && !hasLink) || (!hasFile && hasLink);
+    
+        fileInput.required = !hasLink;
+        linkInput.required = !hasFile;
+    
+        submitBtn.disabled = !oneFile;
+      }
+
     validate();
     fileInput.addEventListener('change', validate);
     linkInput.addEventListener('input', validate);
