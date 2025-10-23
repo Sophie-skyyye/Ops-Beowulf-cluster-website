@@ -1,9 +1,13 @@
 <link rel="stylesheet" href="{{ url_for('static', filename='upload.css') }}">
 
 <div id="upload-container">
-  <p>Select a file to upload or download a file from GitHub</p>
+  <p id="header-text">Select a file to upload or download a file from GitHub</p>
 
   <form id="upload-form" onsubmit="return false">
+
+    <input type ="text" id="name-input" name="name" placeholder="Student name" required>
+    <input type ="text" id="fileName-input" name="fileName" placeholder="File name (optional)">
+
     <!-- Hidden real input -->
     <input
       id="file"

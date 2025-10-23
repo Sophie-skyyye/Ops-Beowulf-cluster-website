@@ -4,7 +4,11 @@
     align-items:center;
     margin:20px;
   }
-  
+
+  #header-text {
+    font-size: 18px;
+  }
+
   #upload-form{
     display:flex;
     flex-direction:column;
@@ -50,8 +54,9 @@
     white-space:nowrap;
   }
   
-  #git-link, #submit-btn{
+  #git-link, #submit-btn, #fileName-input, #name-input{
     width:320px;
+    margin: 5px 0px;
   }
 
   #submit-btn{
