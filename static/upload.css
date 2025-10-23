@@ -4,6 +4,7 @@
     align-items:center;
     margin:20px;
   }
+  
   #upload-form{
     display:flex;
     flex-direction:column;
@@ -11,7 +12,7 @@
     gap:10px;
   }
   
-  /* hide the real file input but keep it accessible for label */
+  /* hide the real file input but keep it accessible */
   #file{
     position:absolute;
     width:1px; height:1px;
@@ -21,7 +22,7 @@
     border:0;
   }
   
-  /* custom, centered file control */
+ /* styling for fake visible file input  */
   #file-ui{
     display:flex;
     align-items:center;
@@ -37,7 +38,6 @@
   
   #file-button{
     padding:6px 10px;
-    border:1px solid #aaa;
     border-radius:4px;
   }
   
@@ -50,8 +50,23 @@
     white-space:nowrap;
   }
   
-  /* make other controls the same width */
   #git-link, #submit-btn{
     width:320px;
-    box-sizing:border-box;
+  }
+
+  #submit-btn{
+    padding:8px 0;
+    border-radius: 4px;
+    border: none;
+    background-color: rgb(64, 137, 255);
+    border: 1px solid black;
+    color: black;
+  }
+
+  #submit-btn:enabled{
+    opacity: 1;
+  }
+
+  #submit-btn:disabled{
+    opacity: .6;
   }
