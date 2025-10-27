@@ -8,20 +8,50 @@
 
 <body>
   <!-- Link the Header -->
-  <header class="main-header">
-    <div class="header-container">
-        <a href="/" class="logo">
-            <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo">
-        </a>
-        
-        <a href="#" class="sign-in-btn">
-            <svg class="user-icon" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"/>
-            </svg>
-            Sign In
-        </a>
-    </div>
-</header>
+    <!-- Main Header with Logo and Sign In -->
+    <header class="main-header">
+      <div class="header-container">
+          <a href="/" class="logo">
+              <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo">
+          </a>
+          
+          <div style="position: relative;">
+              <button class="sign-in-btn" id="signInBtn">
+                  <svg class="user-icon" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                      <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"/>
+                  </svg>
+                  Sign In
+                  <svg class="dropdown-arrow" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                      <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/>
+                  </svg>
+              </button>
+              
+              <div class="dropdown-menu" id="dropdownMenu">
+                  <a href="/logout">Logout</a>
+              </div>
+          </div>
+      </div>
+  </header>
+
+  <script>
+    const signInBtn = document.getElementById('signInBtn');
+    const dropdownMenu = document.getElementById('dropdownMenu');
+
+    // Toggle dropdown on button click
+    signInBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        signInBtn.classList.toggle('active');
+        dropdownMenu.classList.toggle('show');
+    });
+
+    // Close dropdown when clicking outside
+    document.addEventListener('click', function(e) {
+        if (!signInBtn.contains(e.target) && !dropdownMenu.contains(e.target)) {
+            signInBtn.classList.remove('active');
+            dropdownMenu.classList.remove('show');
+        }
+    });
+</script>
 
     <div class="dashboard">
     <header class="dash-header">

@@ -66,6 +66,63 @@ h1 {
             background-color: #0056b3;
         }
 
+        .dropdown-arrow {
+          width: 12px;
+          height: 12px;
+          margin-left: 4px;
+          transition: transform 0.3s ease;
+        }
+
+        .sign-in-btn.active .dropdown-arrow {
+          transform: rotate(180deg);
+        }
+        
+        .dropdown-menu {
+          position: absolute;
+          top: calc(100% + 8px);
+          right: 0;
+          background: white;
+          border-radius: 8px;
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+          min-width: 150px;
+          opacity: 0;
+          visibility: hidden;
+          transform: translateY(-10px);
+          transition: all 0.3s ease;
+          z-index: 1001;
+        }
+
+        .dropdown-menu.show {
+          opacity: 1;
+          visibility: visible;
+          transform: translateY(0);
+        }
+
+        .dropdown-menu a {
+          display: block;
+          padding: 12px 16px;
+          color: #333;
+          text-decoration: none;
+          font-size: 0.95rem;
+          transition: background-color 0.2s ease;
+        }
+
+        .dropdown-menu a:first-child {
+          border-radius: 8px 8px 0 0;
+        }
+        
+        .dropdown-menu a:last-child {
+          border-radius: 0 0 8px 8px;
+        }
+        
+        .dropdown-menu a:hover {
+          background-color: #f8f9fa;
+        }
+        
+        .dropdown-menu a:active {
+          background-color: #e9ecef;
+        }
+
         .user-icon {
             width: 20px;
             height: 20px;
