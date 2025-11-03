@@ -1,18 +1,70 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Upload</title>
-</head>
-<body>
-    <h1>Upload Page</h1>
+<link rel="stylesheet" href="{{ url_for('static', filename='upload.css') }}">
 
-    <form onsubmit="event.preventDefault(); this.reset();">
-        <label for="file">Choose a file:</label>
-        <input type="file" id="file" name="file">
-        <button type="submit">Upload</button>
-    </form>
+<div id="upload-container">
+  <p id="header-text">Select a file to upload or download a file from GitHub</p>
 
-</body>
-</html>
+  <form id="upload-form" onsubmit="return false">
+
+    <input type ="text" id="name-input" name="name" placeholder="Student name" required>
+    <input type ="text" id="fileName-input" name="fileName" placeholder="File name (optional)">
+
+    <!-- Hidden real input -->
+    <input
+      id="file"
+      type="file"
+      onchange="document.getElementById('file-name').textContent = this.files[0]?.name || 'No file chosen'">
+
+    <!-- Better looking UI -->
+    <label for="file" id="file-ui">
+      <span id="file-button">Choose File</span>
+      <span id="file-name">No file chosen</span>
+    </label>
+
+    <input type="text" id="git-link" name="Git_Link" placeholder="GitHub file link">
+    <button type="submit" id="submit-btn" disabled>Upload</button>
+  </form>
+</div>
+
+<script>
+  const form = document.getElementById('upload-form');
+  const fileInput = document.getElementById('file');
+  const gitInput  = document.getElementById('git-link');
+  const submitBtn = document.getElementById('submit-btn');
+
+  // Only enable submit button if one or the other is filled. Disable if none or both
+  const updateButtonState = () => {
+    const hasFile = fileInput.files && fileInput.files.length > 0;
+    const hasLink = gitInput.value.trim().length > 0;
+    const exactlyOne = (hasFile && !hasLink) || (!hasFile && hasLink);
+    submitBtn.disabled = !exactlyOne;
+  };
+
+  fileInput.addEventListener('change', updateButtonState);
+  gitInput.addEventListener('input', updateButtonState);
+
+  form.addEventListener('submit', () => {
+    const file = fileInput.files?.[0];
+    const gitLink = gitInput.value.trim();
+
+    // Download file if one has been uploaded
+    if (file) {
+      const url = URL.createObjectURL(file);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = file.name;
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      setTimeout(() => URL.revokeObjectURL(url), 1000);
+    } 
+    // Otherwise fetch the file from Github
+    else if (gitLink) {
+      // Placeholder: later add GitHub fetch logic
+    }
+
+    // Reset UI
+    form.reset();
+    submitBtn.disabled = true;
+  });
+  updateButtonState();
+</script>
