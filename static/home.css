@@ -137,22 +137,35 @@ h1 {
 /* ----------------------------------------------- Dashboard --------------------------------------------------------------*/
 /* Move the whole grid slightly left; increase gap between columns */
 .dashboard {
-  max-width: 1400px;        /* gives room to breathe */
-  margin-left: 48px;        /* <<< shift left */
+  max-width: 1400px;        
+  margin-left: 48px;        
   margin-right: 0;
   padding: 24px 24px 24px 0;
   display: grid;
-  grid-template-columns: 560px 1fr;   /* left fixed, right flexible */
+  grid-template-columns: 560px 1fr;   
   grid-template-areas:
     "header header"
     "queue  right";
-  column-gap: 96px;         /* <<< more space between queue and right column */
+  column-gap: 96px;         
   row-gap: 24px;
   align-items: start;
 }
 
 .dash-header { grid-area: header; }
 .dash-header h1 { margin-bottom: 12px; }
+
+.dash-header {
+  background: none;
+  box-shadow: none;
+  padding: 0;
+}
+
+.dash-header h1 {
+  background: none;
+  box-shadow: none;
+  padding: 0;
+  margin: 0;
+}
 
 /* ----------------------------------------- Queue container ------------------------------------------------------------------*/
 .queue-container {
